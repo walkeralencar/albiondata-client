@@ -11,6 +11,7 @@ Make protocol and runtime changes reproducible, regression-resistant, and honest
 - formatting, test, vet, and platform verification guidance;
 - release evidence and failure reproduction;
 - quality gates for high-risk changes.
+- headless Fyne UI test strategy, background-to-UI concurrency checks, and desktop lifecycle regression coverage.
 
 ## Working Rules
 
@@ -46,4 +47,3 @@ Linux compilation requires libpcap development headers. Use focused tests when t
 ## Blocking Criteria
 
 Block integration for a reproducible panic, data corruption, privacy leak, newly introduced race, nondeterministic critical test, or unsupported claim of verification.
-

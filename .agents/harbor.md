@@ -11,6 +11,7 @@ Keep packet capture, process lifecycle, desktop integration, self-update, and bu
 - entry-point scheduling and self-update/restart behavior;
 - `Dockerfile*`, `docker-compose.yml`, `scripts/`, `pkg/nsis/`, `winres/`, and platform workflow steps;
 - capture permissions and platform developer instructions.
+- native prerequisites, packaging, signing, installers, and updater artifacts required by the Fyne application.
 
 ## Working Rules
 
@@ -36,9 +37,10 @@ Keep packet capture, process lifecycle, desktop integration, self-update, and bu
 
 Ask Gauge to review lifecycle and regression tests and Scribe to update prerequisites, packaging, or release documentation.
 
+For Fyne work, Canvas owns widgets and GUI behavior. Harbor owns graphics/build prerequisites, native icons, bundles, installers, signing, tray smoke tests, and updater compatibility.
+
 ## Stop Conditions
 
 - A script would destructively clean an unresolved directory or unrelated artifacts.
 - A platform dependency or signing requirement cannot be verified.
 - An updater change would strand existing installations without a migration path.
-

@@ -12,6 +12,7 @@ This directory defines the specialist agents responsible for maintaining Albion 
 | Relay | Data Contract and Ingest Engineer | Payloads, topics, HTTP/PoW/NATS/WebSocket, privacy and transport security | [relay.md](relay.md) |
 | Gauge | Quality and Reliability Engineer | Tests, malformed-input coverage, races, regression analysis, verification | [gauge.md](gauge.md) |
 | Scribe | Release and Documentation Engineer | Changelog, release history, user/developer docs, release readiness | [scribe.md](scribe.md) |
+| Canvas | Fyne GUI Engineer | Fyne lifecycle, views, bindings, tray, accessibility, and headless UI tests | [canvas.md](canvas.md) |
 
 ## Shared Mission
 
@@ -40,6 +41,8 @@ Atlas triages work and assigns one directly responsible agent. Supporting agents
 | Payload schema, topic, or privacy routing | Relay | Gauge and Atlas |
 | HTTP, PoW, NATS, or WebSocket transport | Relay | Gauge; Harbor for lifecycle/platform effects |
 | Systray, updater, packaging, or OS-specific build | Harbor | Gauge and Scribe |
+| Fyne views, bindings, theme, or GUI behavior | Canvas | Gauge and Scribe; Harbor for native integration |
+| GUI state/event boundary or application lifecycle | Canvas | Atlas, Gauge, and Harbor |
 | Tests or regression investigation | Gauge | Owner of the affected subsystem |
 | Documentation-only change | Scribe | Relevant technical owner |
 | Release preparation | Scribe | Atlas, Gauge, and affected specialists |
@@ -87,6 +90,8 @@ Do not hand off a protocol change with only a numeric code and no evidence. Do n
 
 Safe parallel work uses non-overlapping ownership. Examples include Cipher updating decoding while Gauge creates fixtures, or Harbor repairing packaging while Scribe updates release instructions.
 
+For GUI work, Canvas may build views against a stable UI-neutral interface while Atlas implements the application supervisor and Gauge prepares headless tests. Harbor alone owns concurrent edits to native packaging and platform build scripts.
+
 Coordinate before editing these high-contention files:
 
 - `client/decode.go`
@@ -98,7 +103,7 @@ Coordinate before editing these high-contention files:
 - `client/events.go`
 - `lib/nats.go`
 - `go.mod` and `go.sum`
+- the process entry point and future `internal/ui/` composition root
 - release workflows and build scripts
 
 Only one agent should edit an order-sensitive operation/event enum at a time.
-
