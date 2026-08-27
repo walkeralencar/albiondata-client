@@ -13,6 +13,8 @@ The project uses Go modules (`go 1.24` in `go.mod`), CGO, and libpcap. Release C
 
 Read `docs/PROJECT_GUIDE.md` before making architectural, protocol, uploader, or release changes.
 
+For multi-agent work, use the squad definition and routing rules in `.agents/README.md`. Each specialist must also follow its role file under `.agents/`.
+
 ## Repository Map
 
 - `albiondata-client.go`: process entry point, background updater, platform-specific systray scheduling.
@@ -75,4 +77,3 @@ Live capture requires libpcap and elevated packet-capture capability. Prefer off
 - Do not change release asset names, updater prefixes, GitHub owner/repository defaults, ingest endpoints, server-IP mappings, or the default port (`5056`) without tracing all consumers.
 - Do not make public data private or private data public accidentally. Personalized uploads belong only on configured private targets and the opt-in local WebSocket feed.
 - Keep documentation in `docs/` except for conventional root files such as `README.md`, `AGENTS.md`, `LICENSE`, and contribution metadata.
-
