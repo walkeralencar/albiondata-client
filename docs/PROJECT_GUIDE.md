@@ -1,5 +1,7 @@
 # Albion Data Client Project Guide
 
+Related documentation: [Documentation Index](README.md), [Changelog](CHANGELOG.md), and [Release History](RELEASE_HISTORY.md).
+
 ## Purpose and Boundaries
 
 Albion Data Client is the desktop capture component of the Albion Online Data Project. It observes local TCP and UDP traffic on the Albion game port, parses Photon protocol messages, extracts selected market and world data, and publishes JSON payloads to configured ingest services.
