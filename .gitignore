@@ -17,5 +17,6 @@ buildall.sh
 run.sh
 *.log
 *.log.*
-
-
+vendor
+.devcontainer/
+!.devcontainer/devcontainer.json
